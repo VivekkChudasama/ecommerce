@@ -8,6 +8,8 @@ import OrderHistory from './src/screens/user/order-history'
 import OrderDone from './src/screens/user/order-done'
 import OrderCancel from './src/screens/user/order-cancel'
 import OrderDelivery from './src/screens/user/order-delivery'
+import Login from './src/screens/login'
+import SignUpView from './src/screens/register'
 
 const BottomTabs = createBottomTabNavigator(
   {
@@ -53,7 +55,9 @@ const RootStack = createStackNavigator(
     OrderHistory,
     OrderDone,
     OrderCancel,
-    OrderDelivery
+    OrderDelivery,
+    Login,
+    SignUp: SignUpView,
   },
   {
     initialRouteName: 'Home',

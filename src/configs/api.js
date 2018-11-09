@@ -7,13 +7,16 @@ const METHODS = {
 };
 
 export default {
-  endPoint: "https://my-json-server.typicode.com/luuvansinh/json-data/",
-  endPointHoc: "",
+  endPoint: 'https://my-json-server.typicode.com/luuvansinh/mock-data',
+  endPointDev: 'https://greengrocer.herokuapp.com/api',
   methods: METHODS,
 
   common: {
-    login: () => ({}),
-    register: () => ({})
+    login: () => ({
+      url: '/login',
+      method: METHODS.post,
+    }),
+    register: () => ({}),
   },
 
   product: {

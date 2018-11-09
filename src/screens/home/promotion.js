@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { Tile } from 'react-native-elements'
 import Swiper from 'react-native-swiper'
-import { StyleSheet, Dimensions, ImageBackground, Text } from 'react-native'
+import { StyleSheet, Dimensions, ImageBackground, Text, TouchableOpacity } from 'react-native'
 
 class PromotionList extends Component {
   render() {
-    const { promotions } = this.props
+    const { promotions, navigation } = this.props
     return (
       <Swiper
         style={styles.wrapper}
@@ -15,8 +14,14 @@ class PromotionList extends Component {
       >
         {
           promotions.map(item => (
-            <ImageBackground key={item.id} source={{ uri: item.image }} style={styles.slide}>
+            <ImageBackground key={item.id} source={{ uri: 'https://picsum.photos/300/200/?image=280' }} style={styles.slide}>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('Login')
+                }}
+              >
               <Text style={styles.text}>{item.name}</Text>
+              </TouchableOpacity>
             </ImageBackground>
           ))
         }

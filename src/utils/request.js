@@ -67,12 +67,12 @@ const processOptions = async (options) => {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-const call = (url, options = {}) => {
+const call = async (url, options = {}) => {
   url = ApiConst.endPoint + url
   if (!options.method) {
     options.method = ApiConst.methods.get
   }
-  options = processOptions(options)
+  options = await processOptions(options)
   if (options.query) {
     url += `?${options.query}`
   }
@@ -83,23 +83,22 @@ const call = (url, options = {}) => {
     .catch(err => ({ err }))
 }
 
-const callAnother = (url, options = {}) => {
-  url = ApiConst.endPointHoc + url
+const callServer = async (url, options = {}) => {
+  url = ApiConst.endPointDev + url
   if (!options.method) {
     options.method = ApiConst.methods.get
   }
-  options = processOptions(options)
+  options = await processOptions(options)
   if (options.query) {
     url += `?${options.query}`
   }
-
+  
   return fetch(url, options)
     .then(parseJSON)
-    // .then(data => ({ data }))
     .catch(err => ({ err }))
 }
 
 export default {
   call,
-  callAnother
+  callServer,
 }
