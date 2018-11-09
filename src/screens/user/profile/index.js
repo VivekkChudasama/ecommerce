@@ -5,9 +5,8 @@ import { Header, Text, Avatar, Icon, Button } from 'react-native-elements'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { connect } from 'react-redux'
 import style from "./style"
-import { ComponentConst } from '../../configs'
-import { HeaderBar } from '../../components'
-import { IconLoading } from '../../components'
+import { ComponentConst } from '../../../configs'
+import { IconLoading } from '../../../components'
 
 
 class ProfileView extends React.Component {
